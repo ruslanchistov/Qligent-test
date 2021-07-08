@@ -1,0 +1,18 @@
+package com.qligent.point.count.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Point {
+
+    private int x;
+    private int y;
+
+    public int getX() {
+        return x;
+    }
+}

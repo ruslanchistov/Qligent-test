@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        artifactGroup = 'com.qligent.point.count'
+        artifactVersion = '0.0.1-SNAPSHOT'
+
+        springBootVersion = '2.4.4'
+        springDependencyManagementVersion = '1.0.11.RELEASE'
+        lombokVersion = '5.0.1'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id 'io.freefair.lombok' version "${lombokVersion}"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+group "${artifactGroup}"
+version "${artifactVersion}"
+sourceCompatibility = JavaVersion.VERSION_11
+generateLombokConfig.enabled = false
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
