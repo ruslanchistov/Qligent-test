@@ -19,6 +19,7 @@ class PointCountServiceTest {
 
     @Test
     void pointCount()  {
+        PointCountService pointCountService = new PointCountService();
         List<List<Point>> point_groups = new ArrayList<>();
         int[] amount_actual_points = {0,0,0,5};
 //        список точек, не принадлежащих ни одной области
@@ -41,7 +42,7 @@ class PointCountServiceTest {
                     .points(point_groups.get(i))
                     .build();
             try {
-                int count = new PointCountService().pointCount(input);
+                int count = pointCountService.pointCount(input);
                 assertEquals(amount_actual_points[i], count);
             } catch (WrongInputException e) {
                 e.printStackTrace();
