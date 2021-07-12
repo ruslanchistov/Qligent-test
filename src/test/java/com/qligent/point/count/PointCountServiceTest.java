@@ -1,7 +1,5 @@
 package com.qligent.point.count;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.qligent.point.count.dto.Input;
 import com.qligent.point.count.dto.Point;
 import com.qligent.point.count.dto.Region;
@@ -12,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PointCountServiceTest {
@@ -48,5 +48,12 @@ class PointCountServiceTest {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Test
+    void checkingInputParameters() throws WrongInputException{
+        Throwable thrown = assertThrows(WrongInputException.class,
+                () ->new PointCountService().pointCount(null));
+        assertNotNull(thrown.getMessage());
     }
 }
